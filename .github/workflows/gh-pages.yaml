@@ -19,7 +19,10 @@ jobs:
           REACT_APP_AUTH0_CLIENT_ID: ${{ secrets.REACT_APP_AUTH0_CLIENT_ID }}
         run: |
           npm install
-          npm run-script deploy
+          npm run-script build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
